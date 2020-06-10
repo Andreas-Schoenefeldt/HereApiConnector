@@ -6,7 +6,7 @@ A php library to connect to the here api server side
 This is the vanilla php integration, there exists also a [dedicated bundle for Symfony](https://github.com/Andreas-Schoenefeldt/HereApiConnectorBundle).
 
 1. You will need a [here api developer account](https://developer.here.com/). 
-1. Install the library via [composer](https://getcomposer.org):`$ composer require schoenef/here-api-connector`
+1. Install the library via [composer](https://getcomposer.org):`$ composer require schoenef/here-api-connector:~1.0`
 1. Set it up:
 ```php
 require_once __DIR__ . '/vendor/autoload.php';
