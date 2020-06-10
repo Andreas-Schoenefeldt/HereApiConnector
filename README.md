@@ -24,4 +24,4 @@ print_r($connector->searchLocation('Schönhauser A', [
 
 ## Options
 
-This was developed againt version 6.2 of the here api, all options are [documented here](https://developer.here.com/documentation/geocoder-autocomplete/dev_guide/topics/resource-suggest.html)
+This was developed against version 6.2 of the here api, all options are [documented here](https://developer.here.com/documentation/geocoder-autocomplete/dev_guide/topics/resource-suggest.html)

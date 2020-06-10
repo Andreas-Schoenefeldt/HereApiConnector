@@ -28,17 +28,18 @@ class HereApiConnector {
         $this->config = $connectorConfig;
 
         $timeout = isset($this->config[self::KEY_TIMEOUT]) ? $this->config[self::KEY_TIMEOUT] : 10;
+        $isNewApiAuth = isset($this->config[self::KEY_API_KEY]);
 
         $this->geocoderClient = new Client([
             // Base URI is used with relative requests
-            'base_uri' => 'https://geocoder.api.here.com/6.2/',
+            'base_uri' => $isNewApiAuth ? 'https://geocoder.ls.hereapi.com/6.2/' : 'https://geocoder.api.here.com/6.2/',
             // You can set any number of default request options.
             'timeout'  => $timeout,
         ]);
 
         $this->autocompleteClient = new Client([
             // Base URI is used with relative requests
-            'base_uri' => isset($this->config[self::KEY_API_KEY]) ? 'https://autocomplete.geocoder.ls.hereapi.com/6.2/' : 'https://autocomplete.geocoder.api.here.com/6.2/',
+            'base_uri' => $isNewApiAuth ? 'https://autocomplete.geocoder.ls.hereapi.com/6.2/' : 'https://autocomplete.geocoder.api.here.com/6.2/',
             // You can set any number of default request options.
             'timeout'  => $timeout,
         ]);
