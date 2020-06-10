@@ -3,6 +3,12 @@
   "description": "A php library to connect to the here api server side",
   "licence": "MIT",
   "require": {
-    "php": "^7.4"
+    "php": "^7.4",
+    "guzzlehttp/guzzle": "^6.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "Schoenef\\HereApiConnector\\": "src"
+    }
   }
 }
