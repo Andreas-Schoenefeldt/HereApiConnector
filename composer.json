@@ -1,6 +1,7 @@
 {
   "name": "schoenef/here-api-connector",
   "description": "A php library to connect to the here api server side",
+  "licence": "MIT",
   "require": {
     "php": "^7.4"
   }
