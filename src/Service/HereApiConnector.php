@@ -91,9 +91,18 @@ class HereApiConnector {
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function getLocationDetails (array $result) {
+        return $this->getLocationDetailsById($result['properties']['id']);
+    }
+
+    /**
+     * @param string $placeId
+     * @return array
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function getLocationDetailsById ($placeId) {
         $options = $this->getStandardOptions();
 
-        $options['locationid'] = $result['properties']['id'];
+        $options['locationid'] = $placeId;
         $options['gen'] = 9; // hardcode to generation 9
         $options['jsonattributes'] = 1; // to have a unified api - first letter is forced to be lowercase
 

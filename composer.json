@@ -4,7 +4,8 @@
   "license": "MIT",
   "require": {
     "php": "^7.4",
-    "guzzlehttp/guzzle": "^6.5"
+    "guzzlehttp/guzzle": "^6.5",
+    "ext-json": "*"
   },
   "autoload": {
     "psr-4": {
