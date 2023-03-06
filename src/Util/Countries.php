@@ -1,15 +1,11 @@
 <?php
-
-
 namespace Schoenef\HereApiConnector\Util;
 
-
-use Exception;
-use Schoenef\HereApiConnector\Service\HereApiConnector;
+use RuntimeException;
 
 class Countries {
 
-    const MAP = [
+    public const MAP = [
         'AF' => 'AFG', // Afghanistan
         'AL' => 'ALB', // Albania
         'DZ' => 'DZA', // Algeria
@@ -262,8 +258,10 @@ class Countries {
 
     public static function guessIso3 ($countryCode) {
         if (strlen($countryCode) === 2 && !array_key_exists($countryCode, self::MAP)) {
-            throw new Exception("$countryCode can not be mapped to an ISO3 code.");
-        } else if (strlen($countryCode) === 2) {
+            throw new RuntimeException("$countryCode can not be mapped to an ISO3 code.");
+        }
+
+        if (strlen($countryCode) === 2) {
             return self::MAP[$countryCode];
         }
 

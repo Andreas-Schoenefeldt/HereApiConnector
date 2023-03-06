@@ -3,7 +3,7 @@
   "description": "A php library to connect to the here api server side",
   "license": "MIT",
   "require": {
-    "php": "^7.3",
+    "php": ">=7.3",
     "guzzlehttp/guzzle": "^6.5",
     "ext-json": "*"
   },

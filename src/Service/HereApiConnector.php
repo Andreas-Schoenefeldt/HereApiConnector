@@ -3,20 +3,21 @@
 namespace Schoenef\HereApiConnector\Service;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 use Schoenef\HereApiConnector\Util\Countries;
 
 class HereApiConnector {
-    const KEY_TIMEOUT = 'timeout'; // timeout in seconds
-    const KEY_APP_ID = 'app_id';
-    const KEY_APP_CODE = 'app_code';
-    const KEY_API_KEY = 'apiKey';
-    const KEY_LANG = 'lang';
-    const KEY_COUNTRY = 'country';
+    public const KEY_TIMEOUT = 'timeout'; // timeout in seconds
+    public const KEY_APP_ID = 'app_id';
+    public const KEY_APP_CODE = 'app_code';
+    public const KEY_API_KEY = 'apiKey';
+    public const KEY_LANG = 'lang';
+    public const KEY_COUNTRY = 'country';
 
-    private $config;
+    private array $config;
 
-    private $autocompleteClient;
-    private $geocoderClient;
+    private Client $autocompleteClient;
+    private Client $geocoderClient;
 
     private $lang;
     private $country;
@@ -60,9 +61,9 @@ class HereApiConnector {
      * @param array $filter the filter allows to reduce the results to certain types
      * @return array|bool
      * @throws \Exception
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws GuzzleException
      */
-    public function searchLocation ($query, $options = [], $filter = []) {
+    public function searchLocation ($query, array $options = [], array $filter = []) {
 
         $options = $this->getStandardOptions($options);
 
@@ -88,7 +89,7 @@ class HereApiConnector {
      *
      * @param array $result
      * @return array
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws GuzzleException
      */
     public function getLocationDetails (array $result) {
         return $this->getLocationDetailsById($result['properties']['id'], $result);
@@ -98,9 +99,9 @@ class HereApiConnector {
      * @param string $placeId
      * @param array $result
      * @return array
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws GuzzleException
      */
-    public function getLocationDetailsById ($placeId, $result = []) {
+    public function getLocationDetailsById (string $placeId, array $result = []) {
         $options = $this->getStandardOptions();
 
         $options['locationid'] = $placeId;
