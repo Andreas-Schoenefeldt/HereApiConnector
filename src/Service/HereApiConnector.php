@@ -91,7 +91,8 @@ class HereApiConnector {
      * @return array
      * @throws GuzzleException
      */
-    public function getLocationDetails (array $result) {
+    public function getLocationDßetails (array $result): array
+    {
         return $this->getLocationDetailsById($result['properties']['id'], $result);
     }
 
@@ -101,7 +102,8 @@ class HereApiConnector {
      * @return array
      * @throws GuzzleException
      */
-    public function getLocationDetailsById (string $placeId, array $result = []) {
+    public function getLocationDetailsById (string $placeId, array $result = []): array
+    {
         $options = $this->getStandardOptions();
 
         $options['locationid'] = $placeId;
